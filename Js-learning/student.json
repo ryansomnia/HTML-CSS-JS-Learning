@@ -1,0 +1,14 @@
+{
+    {
+        "nama":"Heriyanto",
+        "umur": 24,
+        "skill": "js"
+
+
+    },
+    {
+        "nama":"Sitorus",
+        "umur": 24,
+        "skill": "py"
+    }
+}
