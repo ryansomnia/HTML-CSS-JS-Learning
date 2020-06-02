@@ -172,3 +172,29 @@
 // }
 // let Heriyanto = new Ninja('Heriyanto',10);
 
+// 2.1 Execution Context, Hoisting & Scope
+
+//latihan
+
+function satu() {
+    var nama = "Heriyanto";
+    console.log(nama);
+}
+
+
+function dua() {
+    console.log(nama);
+}
+
+console.log(nama);
+var nama = 'Erik';
+satu();
+dua('doddy');
+console.log(nama);
+
+// 1. undifined
+// 2. Heriyanto
+// 3. doddy x harusnya erick why? awalnya dia mengecek variabel local, 
+        //ga ada, dia cek aergument, ga ada  akhirnya dia memilih global scope.
+// 4. erick
+// info lebih lanjut http://www.pythontutor.com/javascript.html#mode=edit
