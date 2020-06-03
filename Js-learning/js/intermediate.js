@@ -9,8 +9,8 @@
 //     makan: function (porsi) {  // method isinya fungsi
 //         this.cakra = this.cakra + porsi;
 //         console.log(`Selamat makan ${this.nama}, Cakra mu saat ini bertambah menjadi ${this.cakra}`);
-        
-        
+
+
 //     } 
 
 // }
@@ -31,17 +31,17 @@
 //     ninja.battle = function (jutsu) { // method bertarung
 //         this.cakra -= jutsu;
 //         console.log(`Arrrght... Cakra ku menjadi ${this.cakra} `);
-        
+
 //     }
 
 //     ninja.sage = function (meditation) {
 //         this.cakra = meditation * 2;
 //         console.log(`Wadidaw anda sudah menambah Cakra menjadi ${this.cakra}`);
-        
+
 //     }
 
 //     return ninja; //karena ini function harus mengembalikan nilai
-    
+
 // }
 
 // let Heriyanto = Ninja('Heriyanto', 10); 
@@ -67,17 +67,17 @@
 //     this.battle = function (jutsu) { // method bertarung
 //         this.cakra -= jutsu;
 //         console.log(`Arrrght... Cakra ku menjadi ${this.cakra} `);
-        
+
 //     }
 
 //     this.sage = function (meditation) {
 //         this.cakra = meditation * 2;
 //         console.log(`Wadidaw anda sudah menambah Cakra menjadi ${this.cakra}`);
-        
+
 //     }
 
 //     // return ninja; //karena ini construktor tidak menggunakan return
-    
+
 // }
 
 // let Heriyanto = new Ninja('Heriyanto', 10); // nah baru gunakan keywordnya "new"
@@ -95,13 +95,13 @@
 //     battle: function (jutsu) { // method bertarung
 //         this.cakra -= jutsu;
 //         console.log(`Arrrght... Cakra ku menjadi ${this.cakra} `);
-        
+
 //     },
 
 //     sage: function (meditation) {
 //         this.cakra += meditation * 2;
 //         console.log(`Wadidaw anda sudah menambah Cakra menjadi ${this.cakra}`);
-        
+
 //     }
 // };
 
@@ -112,7 +112,7 @@
 //         ninja.cakra = cakra; 
 
 //         return ninja;
-    
+
 //     }
 
 //  let Heriyanto = Ninja('Heriyanto', 10); // nah baru gunakan keywordnya "new"
@@ -168,7 +168,7 @@
 //         this.cakra += meditation * 2;
 //         return `Suggoi ${this.nama}-kun, Cakra mu bertambah manjadi ${this.cakra} point`
 //     }
-    
+
 // }
 // let Heriyanto = new Ninja('Heriyanto',10);
 
@@ -176,25 +176,127 @@
 
 //latihan
 
-function satu() {
-    var nama = "Heriyanto";
-    console.log(nama);
-}
+// function satu() {
+//     var nama = "Heriyanto";
+//     console.log(nama);
+// }
 
 
-function dua() {
-    console.log(nama);
-}
+// function dua() {
+//     console.log(nama);
+// }
 
-console.log(nama);
-var nama = 'Erik';
-satu();
-dua('doddy');
-console.log(nama);
+// console.log(nama);
+// var nama = 'Erik';
+// satu();
+// dua('doddy');
+// console.log(nama);
 
 // 1. undifined
 // 2. Heriyanto
 // 3. doddy x harusnya erick why? awalnya dia mengecek variabel local, 
-        //ga ada, dia cek aergument, ga ada  akhirnya dia memilih global scope.
+//ga ada, dia cek aergument, ga ada  akhirnya dia memilih global scope.
 // 4. erick
 // info lebih lanjut http://www.pythontutor.com/javascript.html#mode=edit
+
+
+
+
+// 2.2 Closure
+
+// function init() {
+//     let nama = 'Heriyanto';
+
+//     function tampilNama() {
+//         console.log(nama);
+//     }
+//     tampilNama();
+// }
+// init(); 
+
+
+// 3.1 Arrow Function
+
+//function tampilPesan(nama) {
+//alert('halo'+nama);
+//}
+//tampilPesan('Heriyanto');
+
+//function expression
+
+//let tampilPesan = function(nama) {
+//  alert('halo'+nama);
+//}
+//tampilPesan('Heriyanto');
+
+//Arrow function adalah bentuk lain lebih ringkas dari function expression
+
+
+//let tampilPesan = (nama) => {
+//  alert('halo'+nama);
+//}
+//tampilPesan('Heriyanto');
+
+
+//function expression
+
+// const tampilNama = function (nama) {
+//     return (`halo ${nama}`);
+// }
+
+// console.log(tampilNama('Heriyanto'));
+
+
+//Arrow function
+
+// const tampilNama = (nama) => {
+//     return nama;
+// }
+// console.log('Heriyanto');
+
+//Arrow function lebih dari 1 parameter
+
+// const tampilNama = (nama, waktu) => {
+//     return `Selamat ${waktu}, ${nama}`;
+// }
+// console.log(tampilNama('Heriyanto', 'Malam'));
+
+//tidak menggunakan kurung a/ kurung kurawal pada parameter
+//disebut implisit return
+// const tampilNama = nama => `Wellcome back ${nama}`;
+
+// console.log('Heriyanto');
+
+//Arrow function tanpa parameter 
+//maka wajib menggunaka kurung buka tutup
+
+// const tampilNama = () => `Wellcome back`;
+
+// console.log(tampilNama());
+
+let mahasiswa = ['dono', 'kuya', 'bedu'];
+
+// let jumlahHuruf = mahasiswa.map(function (nama) {
+//     return nama.length;
+
+// });
+// console.log(jumlahHuruf);
+// console.table(jumlahHuruf);//coba coba
+
+
+//setelah di arrow function
+
+
+// let jumlahHuruf = mahasiswa.map(nama => nama.length);
+
+// console.log(jumlahHuruf);
+// console.table(jumlahHuruf); //coba coba
+
+// kalau mau dikembalikan dalam object
+
+// let jumlahHuruf = mahasiswa.map(nama => ({
+//     nama: nama,
+//     jumlahHuruf: nama.length
+// }));
+// console.log(jumlahHuruf);
+// console.table(jumlahHuruf); //coba coba
