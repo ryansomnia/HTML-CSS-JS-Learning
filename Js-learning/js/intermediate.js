@@ -274,7 +274,7 @@
 
 // console.log(tampilNama());
 
-let mahasiswa = ['dono', 'kuya', 'bedu'];
+// let mahasiswa = ['dono', 'kuya', 'bedu'];
 
 // let jumlahHuruf = mahasiswa.map(function (nama) {
 //     return nama.length;
@@ -300,3 +300,209 @@ let mahasiswa = ['dono', 'kuya', 'bedu'];
 // }));
 // console.log(jumlahHuruf);
 // console.table(jumlahHuruf); //coba coba
+
+
+
+//3.2 this pada Arrow Function
+
+//Constructor Function
+// const Ninja = function () {
+//     this.nama = 'Heriyanto';
+//     this.umur = 24;
+//     this.sayHello = function () {
+//         console.log(`Halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`);
+
+//     }
+// }
+// const heriyanto = new Ninja();
+
+
+// Arrow Function
+// const Ninja = function () {
+//     this.nama = 'Heriyanto';
+//     this.umur = 24;
+//     this.sayHello = () => { //dalam case Constructor Function hanya method yang dapat menggunakan arrow function
+//         console.log(`Halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`);
+
+//     }
+// }
+// const heriyanto = new Ninja();
+
+
+
+// OBJECT LITERAL w arrow f
+// let ninja = {
+//     nama: 'Heriyanto',
+//     cakra: 10,
+//     makan: () => {
+//         console.log(`Selamat makan ${this.nama}, Cakra mu saat ini bertambah menjadi ${this.cakra}`);
+
+//property akan undefined krena tidak ada this karena arrow function tidak memiliki konsep this
+// }
+
+// }
+
+
+//Constructor Function
+// const Ninja = function () {
+//     this.nama = 'Heriyanto';
+//     this.umur = 24;
+//     this.sayHello = function () {
+//         console.log(`Halo, nama saya ${this.nama}, dan saya ${this.umur} tahun`);
+
+//     }
+//     setInterval(() => { ketika ada arrow fun berguna untuk this mencari lexical scope
+//         console.log(this.umur++);
+
+//     }, 500);
+// }
+// const heriyanto = new Ninja();
+
+
+// 4.1 Higher Order Function
+
+
+// function kerjakanTugas(matakuliah, selesai) {
+//fungsi ini disebut Higher Order Function, 
+//jika fungsi memiliki fungsi yang disimpan 
+//dalam argumen argument maka selesai disebut 
+//sebagai callback
+//     console.log(`mulai kerjakan tugas ${matakuliah}...`);
+//     selesai()
+// }
+
+// function selesai() {
+//     alert('Selamat mengerjakan tugas');
+// }
+// kerjakanTugas('Pemograman Web', selesai)
+//contoh lain
+
+// let x = 7
+// for (let i = 1; i <= x; i++) {
+//     console.log(`tangga ke ${i}`);
+// }
+
+
+//dibuat dinamis dan efisien tanpa perlu membongkar coding looping dengan fungsi
+// function tangga(y) {
+//     for (let i = 1; i <= y; i++) {
+//         console.log(`tangga ke ${i}`);
+//     }
+// }
+// tangga(7)
+
+//membuat kembali dinamis sebuah aksi.  kenapa? karena penggunaan Higher Oreder Function
+// function tangga(y, action) {
+//     for (let i = 1; i <= y; i++) {
+//         action(`tangga ke ${i}`);
+//     }
+// }
+// tangga(7, console.log);
+// tangga(3, alert);
+
+
+
+//Hikmahnya jika kita sudah mengerti hal ini 
+//artinya kita sudah bisa membuat coding yg efisien dan dinamis
+//kita menguasai paradigma fungtional programing
+
+
+// JAVASCRIPT LANJUTAN | 4.2 Filter, Map & Reduce
+
+// Filter   : Seperti namanya akan memfilter element yang masuk
+// Map      : Biasa digunakan untuk : merubah semua elemen di dalam 
+//suatu array menjadi elemen dengan nilai yang baru. 
+// Reduce   : Biasa digunakan untuk : Mengakumulasikan atau mengurangi
+// nilai berdasarkan elemen di dalam array.
+
+//contoh :
+const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
+// mencari angka >= 3
+
+//for
+
+// const newAngka = [];
+
+// for (let i = 0; i <= angka.length; i++) {
+//     if (angka[i] >= 3) {
+
+//         newAngka.push(angka[i]);
+
+//     }
+
+// }
+// console.log(newAngka);
+
+// kalau pakai FILTER 
+
+// const newAngka = angka.filter(function (a) {
+//     return a >= 3;
+// });
+// console.log(newAngka);
+
+//modif lg ke arrow function
+// const newAngka = angka.filter(a => a >= 3);
+
+// console.log(newAngka);
+
+
+// MAP
+// kalikan semua angka dengan angka 2
+
+// const newAngka = angka.map(a => a * 2);
+// console.log(newAngka);
+
+
+//REDUCE
+//jumlahkan semua angka
+//memliki 2 argumen
+// const newAngka = angka.reduce((accumulator, currentValue) => accumulator + currentValue);
+// console.log(newAngka);
+
+//Method Chaining
+
+//1. cari angka > 5
+//2. kalikan 2
+//3. jumlahkan
+// const hasil = angka.filter(a => a > 5) // 8, 9, 9
+//     .map(a => a * 3) //24, 27, 27
+//     .reduce((acc, cur) => acc + cur); //78
+// console.log(hasil);
+
+//JAVASCRIPT LANJUTAN | 4.3 Latihan Filter, Map & Reduce
+
+//ambil semua element video
+const videos = Array.from(document.querySelectorAll('[data-duration]'));
+// console.log(videos);
+
+
+//pilih hanya yang javascript lanjutan
+let jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
+
+
+
+    // ambil durasi masing masing
+    .map(item => item.dataset.duration)
+
+    // ubah durasi menjadi float, ubah menit menjadi detik
+    .map(waktu => {
+        const parts = waktu.split(':').map(part => parseFloat(part));
+        return (parts[0] * 60) + parts[1];
+    })
+    //jumlahkan semua detiknya
+
+    .reduce((total, detik) => total + detik);
+
+//ubahkan formatnya jadi jam menit dan detik
+const jam = Math.floor(jsLanjut / 3600);
+jsLanjut = jsLanjut - jam * 3600;
+const menit = Math.floor(jsLanjut / 60);
+const detik = jsLanjut - menit * 60;
+
+
+//simpan di DOM
+const pDurasi = document.querySelector('.total-durasi');
+pDurasi.textContent = `${jam} Jam, ${menit} Menit, ${detik} Detik. `;
+const jmlVideo = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN')).length;
+const pJmlVideo = document.querySelector('.jumlah-video');
+pJmlVideo.textContent = `${jmlVideo} Video`;
