@@ -416,7 +416,7 @@
 // nilai berdasarkan elemen di dalam array.
 
 //contoh :
-const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
+//const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 // mencari angka >= 3
 
 //for
@@ -472,37 +472,281 @@ const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 //JAVASCRIPT LANJUTAN | 4.3 Latihan Filter, Map & Reduce
 
 //ambil semua element video
-const videos = Array.from(document.querySelectorAll('[data-duration]'));
+//const videos = Array.from(document.querySelectorAll('[data-duration]'));
 // console.log(videos);
 
 
 //pilih hanya yang javascript lanjutan
-let jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
+//let jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
 
 
 
-    // ambil durasi masing masing
-    .map(item => item.dataset.duration)
+// ambil durasi masing masing
+//.map(item => item.dataset.duration)
 
-    // ubah durasi menjadi float, ubah menit menjadi detik
-    .map(waktu => {
-        const parts = waktu.split(':').map(part => parseFloat(part));
-        return (parts[0] * 60) + parts[1];
-    })
-    //jumlahkan semua detiknya
+// ubah durasi menjadi float, ubah menit menjadi detik
+// .map(waktu => {
+//     const parts = waktu.split(':').map(part => parseFloat(part));
+//     return (parts[0] * 60) + parts[1];
+// })
+//jumlahkan semua detiknya
 
-    .reduce((total, detik) => total + detik);
+// .reduce((total, detik) => total + detik);
 
 //ubahkan formatnya jadi jam menit dan detik
-const jam = Math.floor(jsLanjut / 3600);
-jsLanjut = jsLanjut - jam * 3600;
-const menit = Math.floor(jsLanjut / 60);
-const detik = jsLanjut - menit * 60;
+// const jam = Math.floor(jsLanjut / 3600);
+// jsLanjut = jsLanjut - jam * 3600;
+// const menit = Math.floor(jsLanjut / 60);
+// const detik = jsLanjut - menit * 60;
 
 
 //simpan di DOM
-const pDurasi = document.querySelector('.total-durasi');
-pDurasi.textContent = `${jam} Jam, ${menit} Menit, ${detik} Detik. `;
-const jmlVideo = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN')).length;
-const pJmlVideo = document.querySelector('.jumlah-video');
-pJmlVideo.textContent = `${jmlVideo} Video`;
+// const pDurasi = document.querySelector('.total-durasi');
+// pDurasi.textContent = `${jam} Jam, ${menit} Menit, ${detik} Detik. `;
+// const jmlVideo = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN')).length;
+// const pJmlVideo = document.querySelector('.jumlah-video');
+// pJmlVideo.textContent = `${jmlVideo} Video`;
+
+
+
+// JAVASCRIPT LANJUTAN | 6.1 Destructuring Assignment
+
+//Desctruction Array
+// const perkenalan = ['Halo', 'nama', 'saya', 'Heriyanto'];
+
+// const [salam, satu, dua, nama] = perkenalan;
+
+
+//skipping item
+//const [salam, , , nama] = perkenalan;
+//console.log(salam);
+
+//swap item
+// let a = 1;
+// let b = 2;
+
+// console.log(a);
+// console.log(b);
+
+// [a, b] = [b, a];
+
+// console.log(a);
+// console.log(b);
+//kesimpulan:bertukar tempat
+
+//return value pada function
+// function coba() {
+//     return [1, 2];
+
+// }
+
+// const [a, b] = coba();
+// console.log(a);
+// console.log(b);
+
+
+// Rest parameter
+
+// const [a, b, ...value] = [1, 2, 3, 4, 5];
+// console.log(a);
+// console.log(b);
+
+// console.log(value);
+
+//Destructuring Object
+
+// const ninja = {
+//     nama: 'Heriyanto',
+//     umur: 24
+// }
+
+// const { nama, umur } = ninja;
+// console.log(nama);
+
+
+//Assigment tanpa deklarasi object
+
+
+// ({ nama, umur } = {
+//     nama: 'Heriyanto',
+//     umur: 24
+// })
+
+// console.log(umur);
+
+
+// Assign ke variabel baru
+// const ninja = {
+//     nama: 'Heriyanto',
+//     umur: 24
+// }
+
+// const { nama: n, umur: u } = ninja;
+// console.log(n);
+
+
+// Memberikan Default value + assign ke variabel baru
+// const ninja = {
+//     nama: 'Heriyanto',
+//     umur: 24
+// }
+
+// const { nama: n, umur: u, email: e = 'email@email.com' } = ninja;
+// console.log(e);
+
+
+//Rest parameter
+// const ninja = {
+//     nama: 'Heriyanto',
+//     umur: 24,
+//     email: 'email@email.com'
+// }
+
+// const { nama, ...value } = ninja;
+// console.log(nama);  
+// console.log(value);
+
+
+
+// Mengambil field pada Object, setelah dikirim sebagai parameter untuk function
+
+// const ninja = {
+//     id: 123,
+//     nama: 'Heriyanto',
+//     umur: 24,
+//     email: 'email@email.com'
+// }
+// function getIdNinja({ id }) {
+//     return id;
+
+// }
+
+// console.log(getIdNinja(ninja));
+
+
+// 6.2 Destructuring Function
+
+function kalkulasi(a, b) {
+    return [a + b, a - b, a * b, a / b];
+
+}
+// const hasil = penjumlahanPerkalian(2, 3);
+// console.log(hasil);
+
+// const jumlah = penjumlahanPerkalian(2, 3)[0];
+// console.log(jumlah);
+
+// const kali = penjumlahanPerkalian(2, 3)[1];
+// console.log(kali);
+
+// const [jumlah, kali] = penjumlahanPerkalian(5, 6);
+// console.log(jumlah);
+// console.log(kali);
+
+// const [tambah, kurang, kali, bagi] = kalkulasi(2, 3);
+// console.log(bagi);
+
+
+
+//Jika urutan tidak berpengaruh
+
+// function kalkulasi(a, b) {
+//     return {
+//         tambah: a + b,
+//         kurang: a - b,
+//         kali: a * b,
+//         bagi: a / b,
+
+//     }
+
+// }
+
+// const { bagi, tambah, kurang, kali } = kalkulasi(2, 3);
+// console.log(kurang);
+
+
+// Decstructuring function argument
+
+// const ninja = {
+//     nama: 'Heriyanto',
+//     umur: 24,
+//     email: 'email@email.com',
+//     nilai: {
+//         tugas: 90,
+//         chunnin: 97,
+//         jutsu: 'ninjutsu'
+//     }
+
+// }
+
+// function cetak({ nama, umur, nilai: { tugas, chunnin, jutsu } }) {
+//     return `Ohaiyouuu, nama saya ${nama},saya berumur ${umur} tahun,
+//      dan hasil ujian saya ${chunnin}, tugas saya ${tugas},
+//       dan saya mengambil konsentrasi ${jutsu}`;
+
+// }
+// console.log(cetak(ninja));
+
+
+// JAVASCRIPT LANJUTAN | 7. for..of VS for..in
+//for..of
+
+//ARRAY
+// const ninja = ['naruto', 'sakura', 'sasuke'];
+// for (let i = 0; i < ninja.length; i++) {
+//     console.log(ninja[i]);
+// }
+
+// ninja.forEach(m => console.log(m));
+
+// for (const m of ninja) {
+//     console.log(m);
+// }
+
+
+//STRING
+
+// const nama = 'Heriyanto';
+// for (const n of nama) {
+//     console.log(n);
+
+// }
+
+//foreach bukan untuk string, hanya untuk array 
+
+
+// const ninja = ['naruto', 'sakura', 'sasuke'];
+// ninja.forEach((m, i) => {
+//     console.log(`${m} adalah ninja ke-${i + 1}`);
+
+// })
+
+
+
+
+//for..in
+
+
+const ninja = {
+    nama: 'Heriyanto',
+    umur: 24,
+    email: 'email@email.com',
+    nilai: {
+        tugas: 90,
+        chunnin: 97,
+        jutsu: 'ninjutsu'
+    }
+
+}
+//untuk memanggil property
+// for (m in ninja) {
+//     console.log(m);
+
+// }
+//untuk memanggil isi property
+for (m in ninja) {
+    console.log(ninja[m]);
+
+}
+
+

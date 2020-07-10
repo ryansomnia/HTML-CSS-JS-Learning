@@ -1,4 +1,4 @@
-// 1.	Buatlah algoritma untuk menampilkan angka 1 s/d n, dengan ketentuan: 
+// 1.	Buatlah algoritma untuk menampilkan angka 1 s/d n, dengan ketentuan:
 // kelipatan 3 diganti “OK”, kelipatan 4 diganti “YES”, kelipatan 3 & 4 diganti “OKYES”
 // Contoh output di bawah adalah ketika nilai “n” = 15
 
@@ -315,22 +315,24 @@
 // console.log(h(pow(2, 1000000000000000), "fruits"));
 // console.log(h(pow(2, 9831050005000007), "fruits"));
 
-function map(array, func) {
-    let result = [];
-    for (let i = 0; i < array.length; i++) {
-        result.push(func(array[i]))
+// function map(array, func) {
+//     let result = [];
+//     for (let i = 0; i < array.length; i++) {
+//         result.push(func(array[i]))
 
-    }
-    return result;
-}
+//     }
+//     return result;
+// }
 
-function questionable(func) {
-    return function (array) {
-        return map(array, func);
-    };
+// function questionable(func) {
+//     return function (array) {
+//         return map(array, func);
+//     };
 
-}
+// }
 
-g = function (x) { return x * x };
-console.log(questionable(g, [1, 2, 3]));
+// g = function (x) { return x * x };
+// console.log(questionable(g, [1, 2, 3]));
+
+
 
